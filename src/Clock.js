@@ -1,11 +1,10 @@
 import React from 'react';
 import styles from './Clock.module.css';
 
-function angle(sec) {
-  const hhmmss = new Date(sec * 1000).toISOString().substr(11, 8).split(':');
-  const hours = (+hhmmss[0] / 12) * 360;
-  const minutes = (+hhmmss[1] / 60) * 360;
-  const seconds = (+hhmmss[2] / 60) * 360;
+function angle(ms) {
+  const hours = (ms / 43200000) * 360;
+  const minutes = (ms / 3600000) * 360;
+  const seconds = (ms / 60000) * 360;
   return {
     hours: hours === 360 ? 0 : hours,
     minutes: minutes === 360 ? 0 : minutes,

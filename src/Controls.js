@@ -8,12 +8,12 @@ export default function Controls(props) {
         name="time"
         type="range"
         min={0}
-        max={86400}
+        max={86400000}
         value={time}
         onChange={handleSetTime}
       />
       <div>{time}</div>
-      <div>{new Date(time * 1000).toISOString().substr(11, 8)}</div>
+      <div>{new Date(Math.round(time)).toISOString().slice(11, -5)}</div>
     </div>
   );
 }
